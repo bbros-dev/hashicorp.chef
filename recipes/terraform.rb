@@ -12,6 +12,7 @@ include_recipe 'hashicorp::default'
 #
 ark 'Install Terraform' do
   action :install
+  append_env_path false
   checksum hashicorp.terraform_checksum
   has_binaries [hashicorp.terraform_name]
   mode '0755'

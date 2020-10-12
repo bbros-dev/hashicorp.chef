@@ -4,8 +4,10 @@
 #
 # Copyright:: 2020, Begley Brothers Inc., All Rights Reserved.
 
-node.default['consul']['version'] = ''
-node.default['consul']['checksum'] = ''
+node.default['consul']['version'] = '1.8.0'
+node.default['consul']['checksum'] = '98df3e0a8ede84794fa4d20b1b6b5d52ad3b983dec916c4d612cecba7c48a421'
+node.default['consul-template']['version'] = '0.25.0'
+node.default['consul-template']['checksum'] = '65982eb00b69303e5caa5677b53cc314fc19ed48042355c9b6465fa568b3aae3'
 node.default['packer']['version'] = ''
 node.default['packer']['checksum'] = ''
 node.default['nomad']['version'] = ''

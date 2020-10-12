@@ -12,9 +12,10 @@ include_recipe 'hashicorp::default'
 #
 ark 'Install Vault' do
   action :install
-  #append_env_path false
+  append_env_path false
   checksum hashicorp.vault_checksum
   has_binaries [hashicorp.vault_name]
+  mode '0755'
   name hashicorp.vault_name
   prefix_root hashicorp.bin_root
   strip_components 0

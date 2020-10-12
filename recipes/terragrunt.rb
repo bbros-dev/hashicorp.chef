@@ -31,6 +31,7 @@ end
 #
 ark 'Install Terragrunt' do
   action :create
+  append_env_path false
   mode '0755'
   checksum hashicorp.terragrunt_checksum
   name hashicorp.terragrunt_name

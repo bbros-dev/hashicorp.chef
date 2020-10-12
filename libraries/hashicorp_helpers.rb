@@ -63,6 +63,36 @@ class ::HashicorpHelpers
     @consul_bin ||= ::File.join(bin_root, consul_name)
   end
 
+  ## Consul
+  #
+  def consul_template_version
+    @consul_template_version ||= @node['consul_template']['version']
+  end
+
+  def consul_template_checksum
+    @consul_template_version ||= @node['consul_template']['checksum']
+  end
+
+  def consul_template_name
+    @consul_template_name ||= 'consul-template'
+  end
+
+  def consul_template_user
+    @consul_template_user ||= consul_template_name
+  end
+
+  def consul_template_group
+    @consul_template_group ||= consul_template_name
+  end
+
+  def consul_template_home
+    @consul_template_home ||= File.join(home_root, consul_template_name)
+  end
+
+  def consul_template_bin
+    @consul_template_bin ||= ::File.join(bin_root, consul_template_name)
+  end
+
   ## Nomad
   #
   def nomad_version
