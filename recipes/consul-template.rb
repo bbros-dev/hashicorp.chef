@@ -6,7 +6,7 @@
 
 ## Install Consul-Template binary file
 #
-ark 'Install Consul-Template binary' do
+ark 'Install Hashicorp Consul-Template binary' do
   action :install
   append_env_path false
   checksum hashicorp.consul_template_checksum

@@ -10,7 +10,7 @@ include_recipe 'hashicorp::default'
 
 ## Install Terraform binary file
 #
-ark 'Install Terraform' do
+ark 'Install Hashicorp Terraform binary' do
   action :install
   append_env_path false
   checksum hashicorp.terraform_checksum

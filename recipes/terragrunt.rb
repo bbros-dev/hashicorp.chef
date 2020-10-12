@@ -29,7 +29,7 @@ end
 
 ## Install Terragrunt binary file
 #
-ark 'Install Terragrunt' do
+ark 'Install Hashicorp Terragrunt binary' do
   action :create
   append_env_path false
   mode '0755'

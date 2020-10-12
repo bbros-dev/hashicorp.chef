@@ -10,7 +10,7 @@ include_recipe 'hashicorp::default'
 
 ## Install Consul binary file
 #
-ark 'Install Consul' do
+ark 'Install Hashicorp Consul binary' do
   action :install
   append_env_path false
   checksum hashicorp.consul_checksum

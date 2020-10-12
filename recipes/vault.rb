@@ -10,7 +10,7 @@ include_recipe 'hashicorp::default'
 
 ## Install Vault binary file
 #
-ark 'Install Vault' do
+ark 'Install Hashicorp Vault binary' do
   action :install
   append_env_path false
   checksum hashicorp.vault_checksum
