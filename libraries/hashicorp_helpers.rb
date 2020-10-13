@@ -33,6 +33,36 @@ class ::HashicorpHelpers
     @home_root ||= '/srv'
   end
 
+  ## Atlantis
+  #
+  def atlantis_version
+    @atlantis_version ||= @node['atlantis']['version']
+  end
+
+  def atlantis_checksum
+    @atlantis_version ||= @node['atlantis']['checksum']
+  end
+
+  def atlantis_name
+    @atlantis_name ||= 'atlantis'
+  end
+
+  def atlantis_user
+    @atlantis_user ||= atlantis_name
+  end
+
+  def atlantis_group
+    @atlantis_group ||= atlantis_name
+  end
+
+  def atlantis_home
+    @atlantis_home ||= File.join(home_root, atlantis_name)
+  end
+
+  def atlantis_bin
+    @atlantis_bin ||= ::File.join(bin_root, atlantis_name)
+  end
+
   ## Consul
   #
   def consul_version
@@ -63,7 +93,7 @@ class ::HashicorpHelpers
     @consul_bin ||= ::File.join(bin_root, consul_name)
   end
 
-  ## Consul
+  ## Consul-Template
   #
   def consul_template_version
     @consul_template_version ||= @node['consul_template']['version']
@@ -211,6 +241,36 @@ class ::HashicorpHelpers
 
   def terragrunt_bin
     @terragrunt_bin ||= ::File.join(bin_root, terragrunt_name)
+  end
+
+  ## TunnelTo
+  #
+  def tunnelto_version
+    @tunnelto_version ||= @node['tunnelto']['version']
+  end
+
+  def tunnelto_checksum
+    @tunnelto_version ||= @node['tunnelto']['checksum']
+  end
+
+  def tunnelto_name
+    @tunnelto_name ||= 'tunnelto'
+  end
+
+  def tunnelto_user
+    @tunnelto_user ||= tunnelto_name
+  end
+
+  def tunnelto_group
+    @tunnelto_group ||= tunnelto_name
+  end
+
+  def tunnelto_home
+    @tunnelto_home ||= File.join(home_root, tunnelto_name)
+  end
+
+  def tunnelto_bin
+    @tunnelto_bin ||= ::File.join(bin_root, tunnelto_name)
   end
 
   ## Vault

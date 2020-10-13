@@ -4,6 +4,8 @@
 #
 # Copyright:: 2020, Begley Brothers Inc., All Rights Reserved.
 
+node.default['atlantis']['version'] = 'v0.15.0'
+node.default['atlantis']['checksum'] = 'a236e7c9df159f8787b143c670f1899dd4bc4349f23ed696468600280fa1266e'
 node.default['consul']['version'] = '1.8.0'
 node.default['consul']['checksum'] = '98df3e0a8ede84794fa4d20b1b6b5d52ad3b983dec916c4d612cecba7c48a421'
 node.default['consul-template']['version'] = '0.25.0'
@@ -22,5 +24,7 @@ node.default['terraform-docs']['version'] = ''
 node.default['terraform-docs']['checksum'] = ''
 node.default['tflint']['version'] = ''
 node.default['tflint']['checksum'] = ''
+node.default['tunnelto']['version'] = '0.1.12'
+node.default['tunnelto']['checksum'] = '21169fe2bacf3e60db4a8ac95b96491df8e1ff9608ab1154d6178fa1774df0f7'
 node.default['vault']['version'] = '1.5.3'
 node.default['vault']['checksum'] = '1ec61ff4d0b7ed774ba6f71829596afd8c8bf1d72c97305f4692001cef8910b2'
