@@ -13,7 +13,7 @@ include_recipe 'hashicorp::default'
 # not_if and only_if guards do not appear to be working for ark resources.
 # Hence, guard with an unless test.
 #
-unless ::File.exist?('/home/hedge/.local/bin/terraform')
+unless ::File.exist?('/usr/local/bin/terraform-0.13.4/terraform')
   ark 'Install Hashicorp Terraform binary' do
     action :install
     append_env_path true

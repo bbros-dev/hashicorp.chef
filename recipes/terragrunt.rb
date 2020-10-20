@@ -48,10 +48,10 @@ end
 
 bash 'Get, Build and Install terragrunt-atlantis-config' do
   code <<-EOCODE
-  go mod init local/build
-  go get -d -v github.com/transcend-io/terragrunt-atlantis-config@v0.9.7
+  /usr/local/bin/go-1.15.2/bin/go mod init local/build
+  /usr/local/bin/go-1.15.2/bin/go get -d -v github.com/transcend-io/terragrunt-atlantis-config@v0.9.7
   mkdir bin
-  go build -o /usr/local/bin/terragrunt-atlantis-config github.com/transcend-io/terragrunt-atlantis-config
+  /usr/local/bin/go-1.15.2/bin/go build -o /usr/local/bin/terragrunt-atlantis-config github.com/transcend-io/terragrunt-atlantis-config
   EOCODE
   cwd "#{Chef::Config[:file_cache_path]}/tmp/terragrunt-atlantis-config"
 end
