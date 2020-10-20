@@ -10,15 +10,17 @@ include_recipe 'hashicorp::default'
 
 ## Install Vault binary file
 #
-ark 'Install Hashicorp Vault binary' do
-  action :install
-  append_env_path false
-  checksum hashicorp.vault_checksum
-  has_binaries [hashicorp.vault_name]
-  mode '0755'
-  name hashicorp.vault_name
-  prefix_root hashicorp.bin_root
-  strip_components 0
-  url "https://releases.hashicorp.com/vault/#{hashicorp.vault_version}/vault_#{hashicorp.vault_version}_linux_#{hashicorp.install_arch}.zip"
-  version hashicorp.vault_version
+unless ::File.exist?('/usr/local/bin/vault')
+  ark 'Install Hashicorp Vault binary' do
+    action :install
+    append_env_path true
+    checksum hashicorp.vault_checksum
+    has_binaries [hashicorp.vault_name]
+    mode '0755'
+    name hashicorp.vault_name
+    prefix_root hashicorp.bin_root
+    strip_components 0
+    url "https://releases.hashicorp.com/vault/#{hashicorp.vault_version}/vault_#{hashicorp.vault_version}_linux_#{hashicorp.install_arch}.zip"
+    version hashicorp.vault_version
+  end
 end
