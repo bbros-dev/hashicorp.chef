@@ -213,6 +213,106 @@ class ::HashicorpHelpers
     @terraform_bin ||= ::File.join(bin_root, terraform_name)
   end
 
+  ## Terraform Docs
+  #
+  def terraform_docs_version
+    @terraform_docs_version ||= @node['terraform_docs']['version']
+  end
+
+  def terraform_docs_checksum
+    @terraform_docs_version ||= @node['terraform_docs']['checksum']
+  end
+
+  def terraform_docs_name
+    @terraform_docs_name ||= 'terraform_docs'
+  end
+
+  def terraform_docs_user
+    @terraform_docs_user ||= terraform_docs_name
+  end
+
+  def terraform_docs_group
+    @terraform_docs_group ||= terraform_docs_name
+  end
+
+  def terraform_docs_home
+    @terraform_docs_home ||= ::File.join(home_root, terraform_docs_name)
+  end
+
+  ## Synchonize with Ark path convention
+  #
+  # Terraform Docs is installed using `remote_file` resource.
+  # We replicate the Ark path when `append_env_path true`.
+  #
+  def terraform_docs_bin
+    @terraform_docs_bin ||= ::File.join(bin_root, "#{terraform_docs_name}-#{terraform_docs_version}" ,terraform_docs_name)
+  end
+
+  ## Tflint
+  #
+  def tflint_version
+    @tflint_version ||= @node['tflint']['version']
+  end
+
+  def tflint_checksum
+    @tflint_version ||= @node['tflint']['checksum']
+  end
+
+  def tflint_name
+    @tflint_name ||= 'tflint'
+  end
+
+  def tflint_user
+    @tflint_user ||= tflint_name
+  end
+
+  def tflint_group
+    @tflint_group ||= tflint_name
+  end
+
+  def tflint_home
+    @tflint_home ||= ::File.join(home_root, tflint_name)
+  end
+
+  def tflint_bin
+    @tflint_bin ||= ::File.join(bin_root, tflint_name)
+  end
+
+  ## Tfsec
+  #
+  def tfsec_version
+    @tfsec_version ||= @node['tfsec']['version']
+  end
+
+  def tfsec_checksum
+    @tfsec_version ||= @node['tfsec']['checksum']
+  end
+
+  def tfsec_name
+    @tfsec_name ||= 'tfsec'
+  end
+
+  def tfsec_user
+    @tfsec_user ||= tfsec_name
+  end
+
+  def tfsec_group
+    @tfsec_group ||= tfsec_name
+  end
+
+  def tfsec_home
+    @tfsec_home ||= ::File.join(home_root, tfsec_name)
+  end
+
+  ## Synchonize with Ark path convention
+  #
+  # Tfsec is installed using `remote_file` resource.
+  # We replicate the Ark path when `append_env_path true`.
+  #
+  def tfsec_bin
+    @tfsec_bin ||= ::File.join(bin_root, "#{tfsec_name}-#{tfsec_version}" ,tfsec_name)
+  end
+
   ## Terragrunt
   #
   def terragrunt_version
@@ -239,8 +339,13 @@ class ::HashicorpHelpers
     @terragrunt_home ||= ::File.join(home_root, terragrunt_name)
   end
 
+  ## Synchonize with Ark path convention
+  #
+  # Terragrunt is installed using `remote_file` resource.
+  # We replicate the Ark path when `append_env_path true`.
+  #
   def terragrunt_bin
-    @terragrunt_bin ||= ::File.join(bin_root, terragrunt_name)
+    @terragrunt_bin ||= ::File.join(bin_root, "#{terragrunt_name}-#{terragrunt_version}" ,terragrunt_name)
   end
 
   ## TunnelTo

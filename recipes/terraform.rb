@@ -13,7 +13,7 @@ include_recipe 'hashicorp::default'
 # not_if and only_if guards do not appear to be working for ark resources.
 # Hence, guard with an unless test.
 #
-unless ::File.exist?('/usr/local/bin/terraform-0.13.4/terraform')
+unless ::File.exist?("/usr/local/bin/terraform-#{hashicorp.terraform_version}/terraform")
   ark 'Install Hashicorp Terraform binary' do
     action :install
     append_env_path true
@@ -25,5 +25,56 @@ unless ::File.exist?('/usr/local/bin/terraform-0.13.4/terraform')
     strip_components 0
     url "https://releases.hashicorp.com/terraform/#{hashicorp.terraform_version}/terraform_#{hashicorp.terraform_version}_linux_#{hashicorp.install_arch}.zip"
     version hashicorp.terraform_version
+  end
+end
+
+## Install Terraform Docs
+#
+unless ::File.exist?(hashicorp.terraform_docs_bin)
+  remote_file 'Install Hashicorp Terragrunt binary' do
+    action :create
+    checksum hashicorp.terraform_docs_checksum
+    mode '0755'
+    name hashicorp.terraform_docs_name
+    path hashicorp.terraform_docs_bin
+    source "https://github.com/terraform-docs/terraform-docs/releases/download/#{hashicorp.terraform_docs_version}/terraform-docs-#{hashicorp.terraform_docs_version}-linux-#{hashicorp.install_arch}"
+  end
+
+  link hashicorp.terraform_docs_bin do
+    to '/usr/local/bin/terraform-docs'
+  end
+end
+
+## Install TFSec
+#
+unless ::File.exist?(hashicorp.tfsec_bin)
+  remote_file 'Install Hashicorp Terragrunt binary' do
+    action :create
+    checksum hashicorp.tfsec_checksum
+    mode '0755'
+    name hashicorp.tfsec_name
+    path hashicorp.tfsec_bin
+    source "https://github.com/tfsec/tfsec/releases/download/#{hashicorp.tfsec_version}/tfsec-linux-#{hashicorp.install_arch}"
+  end
+
+  link hashicorp.tfsec_bin do
+    to '/usr/local/bin/tfsec'
+  end
+end
+
+## Install TFLint
+#
+unless ::File.exist?("/usr/local/bin/tflint-#{hashicorp.tflint_version}/tflint")
+  ark 'Install Hashicorp Terraform binary' do
+    action :install
+    append_env_path true
+    checksum hashicorp.tflint_checksum
+    has_binaries [hashicorp.tflint_name]
+    mode '0755'
+    name hashicorp.tflint_name
+    prefix_root hashicorp.bin_root
+    strip_components 0
+    url "https://github.com/terraform-linters/tflint/releases/download/#{hashicorp.tflint_version}/terraform_linux_#{hashicorp.install_arch}.zip"
+    version hashicorp.tflint_version
   end
 end
