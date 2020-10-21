@@ -29,13 +29,20 @@ end
 
 ## Install Terragrunt binary file
 #
-remote_file 'Install Hashicorp Terragrunt binary' do
-  action :create
-  checksum hashicorp.terragrunt_checksum
-  mode '0755'
-  name hashicorp.terragrunt_name
-  path hashicorp.terragrunt_bin
-  source "https://github.com/gruntwork-io/terragrunt/releases/download/#{hashicorp.terragrunt_version}/terragrunt_linux_#{hashicorp.install_arch}"
+unless ::File.exist?(hashicorp.terragrunt_bin)
+  directory ::File.join(hashicorp.bin_root, "#{hashicorp.terragrunt_name}-#{hashicorp.terragrunt_version}" )
+  remote_file 'Install Hashicorp Terragrunt binary' do
+    action :create
+    checksum hashicorp.terragrunt_checksum
+    mode '0755'
+    name hashicorp.terragrunt_name
+    path hashicorp.terragrunt_bin
+    source "https://github.com/gruntwork-io/terragrunt/releases/download/#{hashicorp.terragrunt_version}/terragrunt_linux_#{hashicorp.install_arch}"
+  end
+
+  link hashicorp.terragrunt_bin do
+    to ::File.join(hashicorp.bin_root, hashicorp.terragrunt_name)
+  end
 end
 
 ## Install Atlantis Terragrunt Configuration generator

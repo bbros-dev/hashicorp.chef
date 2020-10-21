@@ -31,7 +31,8 @@ end
 ## Install Terraform Docs
 #
 unless ::File.exist?(hashicorp.terraform_docs_bin)
-  remote_file 'Install Hashicorp Terragrunt binary' do
+  directory ::File.join(hashicorp.bin_root, "#{hashicorp.terraform_docs_name}-#{hashicorp.terraform_docs_version}" )
+  remote_file 'Install Hashicorp Terraform Docs binary' do
     action :create
     checksum hashicorp.terraform_docs_checksum
     mode '0755'
@@ -40,14 +41,15 @@ unless ::File.exist?(hashicorp.terraform_docs_bin)
     source "https://github.com/terraform-docs/terraform-docs/releases/download/#{hashicorp.terraform_docs_version}/terraform-docs-#{hashicorp.terraform_docs_version}-linux-#{hashicorp.install_arch}"
   end
 
-  link hashicorp.terraform_docs_bin do
-    to '/usr/local/bin/terraform-docs'
+  link ::File.join(hashicorp.bin_root, hashicorp.terraform_docs_name) do
+    to hashicorp.terraform_docs_bin
   end
 end
 
 ## Install TFSec
 #
 unless ::File.exist?(hashicorp.tfsec_bin)
+  directory ::File.join(hashicorp.bin_root, "#{hashicorp.tfsec_name}-#{hashicorp.tfsec_version}" )
   remote_file 'Install Hashicorp Terragrunt binary' do
     action :create
     checksum hashicorp.tfsec_checksum
@@ -57,8 +59,8 @@ unless ::File.exist?(hashicorp.tfsec_bin)
     source "https://github.com/tfsec/tfsec/releases/download/#{hashicorp.tfsec_version}/tfsec-linux-#{hashicorp.install_arch}"
   end
 
-  link hashicorp.tfsec_bin do
-    to '/usr/local/bin/tfsec'
+  link ::File.join(hashicorp.bin_root, hashicorp.tfsec_name) do
+    to hashicorp.tfsec_bin
   end
 end
 
@@ -74,7 +76,7 @@ unless ::File.exist?("/usr/local/bin/tflint-#{hashicorp.tflint_version}/tflint")
     name hashicorp.tflint_name
     prefix_root hashicorp.bin_root
     strip_components 0
-    url "https://github.com/terraform-linters/tflint/releases/download/#{hashicorp.tflint_version}/terraform_linux_#{hashicorp.install_arch}.zip"
+    url "https://github.com/terraform-linters/tflint/releases/download/#{hashicorp.tflint_version}/tflint_linux_#{hashicorp.install_arch}.zip"
     version hashicorp.tflint_version
   end
 end

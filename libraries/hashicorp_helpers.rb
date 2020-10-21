@@ -216,15 +216,15 @@ class ::HashicorpHelpers
   ## Terraform Docs
   #
   def terraform_docs_version
-    @terraform_docs_version ||= @node['terraform_docs']['version']
+    @terraform_docs_version ||= @node['terraform-docs']['version']
   end
 
   def terraform_docs_checksum
-    @terraform_docs_version ||= @node['terraform_docs']['checksum']
+    @terraform_docs_version ||= @node['terraform-docs']['checksum']
   end
 
   def terraform_docs_name
-    @terraform_docs_name ||= 'terraform_docs'
+    @terraform_docs_name ||= 'terraform-docs'
   end
 
   def terraform_docs_user
