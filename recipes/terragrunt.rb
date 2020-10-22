@@ -40,8 +40,8 @@ unless ::File.exist?(hashicorp.terragrunt_bin)
     source "https://github.com/gruntwork-io/terragrunt/releases/download/#{hashicorp.terragrunt_version}/terragrunt_linux_#{hashicorp.install_arch}"
   end
 
-  link hashicorp.terragrunt_bin do
-    to ::File.join(hashicorp.bin_root, hashicorp.terragrunt_name)
+  link ::File.join(hashicorp.bin_root, hashicorp.terragrunt_name) do
+    to hashicorp.terragrunt_bin
   end
 end
 

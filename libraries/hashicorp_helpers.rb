@@ -35,16 +35,16 @@ class ::HashicorpHelpers
 
   ## Atlantis
   #
+  def atlantis_name
+    @atlantis_name ||= 'atlantis'
+  end
+
   def atlantis_version
-    @atlantis_version ||= @node['atlantis']['version']
+    @atlantis_version ||= @node[atlantis_name]['version']
   end
 
   def atlantis_checksum
-    @atlantis_version ||= @node['atlantis']['checksum']
-  end
-
-  def atlantis_name
-    @atlantis_name ||= 'atlantis'
+    @atlantis_version ||= @node[atlantis_name]['checksum']
   end
 
   def atlantis_user
@@ -65,16 +65,16 @@ class ::HashicorpHelpers
 
   ## Consul
   #
+  def consul_name
+    @consul_name ||= 'consul'
+  end
+
   def consul_version
-    @consul_version ||= @node['consul']['version']
+    @consul_version ||= @node[consul_name]['version']
   end
 
   def consul_checksum
-    @consul_version ||= @node['consul']['checksum']
-  end
-
-  def consul_name
-    @consul_name ||= 'consul'
+    @consul_version ||= @node[consul_name]['checksum']
   end
 
   def consul_user
@@ -95,16 +95,19 @@ class ::HashicorpHelpers
 
   ## Consul-Template
   #
+  # A cookbook `chef-consul-template` exists with node['consul_tmplate'].
+  # We use `consul-template` to prevent interaction.
+  #
+  def consul_template_name
+    @consul_template_name ||= 'consul-template'
+  end
+
   def consul_template_version
-    @consul_template_version ||= @node['consul_template']['version']
+    @consul_template_version ||= @node[consul_template_name]['version']
   end
 
   def consul_template_checksum
-    @consul_template_version ||= @node['consul_template']['checksum']
-  end
-
-  def consul_template_name
-    @consul_template_name ||= 'consul-template'
+    @consul_template_version ||= @node[consul_template_name]['checksum']
   end
 
   def consul_template_user
@@ -125,16 +128,16 @@ class ::HashicorpHelpers
 
   ## Nomad
   #
+  def nomad_name
+    @nomad_name ||= 'nomad'
+  end
+
   def nomad_version
-    @nomad_version ||= @node['nomad']['version']
+    @nomad_version ||= @node[nomad_name]['version']
   end
 
   def nomad_checksum
-    @nomad_version ||= @node['nomad']['checksum']
-  end
-
-  def nomad_name
-    @nomad_name ||= 'nomad'
+    @nomad_version ||= @node[nomad_name['checksum']
   end
 
   def nomad_user
@@ -155,16 +158,16 @@ class ::HashicorpHelpers
 
   ## Packer
   #
+  def packer_name
+    @packer_name ||= 'packer'
+  end
+
   def packer_version
-    @packer_version ||= @node['packer']['version']
+    @packer_version ||= @node[packer_name]['version']
   end
 
   def packer_checksum
-    @packer_version ||= @node['packer']['checksum']
-  end
-
-  def packer_name
-    @packer_name ||= 'packer'
+    @packer_version ||= @node[packer_name]['checksum']
   end
 
   def packer_user
@@ -185,16 +188,16 @@ class ::HashicorpHelpers
 
   ## Terraform
   #
+  def terraform_name
+    @terraform_name ||= 'terraform'
+  end
+
   def terraform_version
-    @terraform_version ||= @node['terraform']['version']
+    @terraform_version ||= @node[terraform_name]['version']
   end
 
   def terraform_checksum
-    @terraform_version ||= @node['terraform']['checksum']
-  end
-
-  def terraform_name
-    @terraform_name ||= 'terraform'
+    @terraform_version ||= @node[terraform_name]['checksum']
   end
 
   def terraform_user
@@ -215,16 +218,16 @@ class ::HashicorpHelpers
 
   ## Terraform Docs
   #
+  def terraform_docs_name
+    @terraform_docs_name ||= 'terraform-docs'
+  end
+
   def terraform_docs_version
-    @terraform_docs_version ||= @node['terraform-docs']['version']
+    @terraform_docs_version ||= @node[terraform_docs_name]['version']
   end
 
   def terraform_docs_checksum
-    @terraform_docs_version ||= @node['terraform-docs']['checksum']
-  end
-
-  def terraform_docs_name
-    @terraform_docs_name ||= 'terraform-docs'
+    @terraform_docs_version ||= @node[terraform_docs_name]['checksum']
   end
 
   def terraform_docs_user
@@ -250,16 +253,16 @@ class ::HashicorpHelpers
 
   ## Tflint
   #
+  def tflint_name
+    @tflint_name ||= 'tflint'
+  end
+
   def tflint_version
-    @tflint_version ||= @node['tflint']['version']
+    @tflint_version ||= @node[tflint_name]['version']
   end
 
   def tflint_checksum
-    @tflint_version ||= @node['tflint']['checksum']
-  end
-
-  def tflint_name
-    @tflint_name ||= 'tflint'
+    @tflint_version ||= @node[tflint_name]['checksum']
   end
 
   def tflint_user
@@ -280,16 +283,16 @@ class ::HashicorpHelpers
 
   ## Tfsec
   #
+  def tfsec_name
+    @tfsec_name ||= 'tfsec'
+  end
+
   def tfsec_version
-    @tfsec_version ||= @node['tfsec']['version']
+    @tfsec_version ||= @node[tfsec_name]['version']
   end
 
   def tfsec_checksum
-    @tfsec_version ||= @node['tfsec']['checksum']
-  end
-
-  def tfsec_name
-    @tfsec_name ||= 'tfsec'
+    @tfsec_version ||= @node[tfsec_name]['checksum']
   end
 
   def tfsec_user
@@ -315,16 +318,16 @@ class ::HashicorpHelpers
 
   ## Terragrunt
   #
+  def terragrunt_name
+    @terragrunt_name ||= 'terragrunt'
+  end
+
   def terragrunt_version
-    @terragrunt_version ||= @node['terragrunt']['version']
+    @terragrunt_version ||= @node[terragrunt_name]['version']
   end
 
   def terragrunt_checksum
-    @terragrunt_version ||= @node['terragrunt']['checksum']
-  end
-
-  def terragrunt_name
-    @terragrunt_name ||= 'terragrunt'
+    @terragrunt_version ||= @node[terragrunt_name]['checksum']
   end
 
   def terragrunt_user
@@ -345,21 +348,21 @@ class ::HashicorpHelpers
   # We replicate the Ark path when `append_env_path true`.
   #
   def terragrunt_bin
-    @terragrunt_bin ||= ::File.join(bin_root, "#{terragrunt_name}-#{terragrunt_version}" ,terragrunt_name)
+    @terragrunt_bin ||= ::File.join(bin_root, "#{terragrunt_name}-#{terragrunt_version}", terragrunt_name)
   end
 
   ## TunnelTo
   #
+  def tunnelto_name
+    @tunnelto_name ||= 'tunnelto'
+  end
+
   def tunnelto_version
-    @tunnelto_version ||= @node['tunnelto']['version']
+    @tunnelto_version ||= @node[tunnelto_name]['version']
   end
 
   def tunnelto_checksum
-    @tunnelto_version ||= @node['tunnelto']['checksum']
-  end
-
-  def tunnelto_name
-    @tunnelto_name ||= 'tunnelto'
+    @tunnelto_version ||= @node[tunnelto_name]['checksum']
   end
 
   def tunnelto_user
@@ -380,16 +383,16 @@ class ::HashicorpHelpers
 
   ## Vault
   #
+  def vault_name
+    @vault_name ||= 'vault'
+  end
+
   def vault_version
-    @vault_version ||= @node['vault']['version']
+    @vault_version ||= @node[vault_name]['version']
   end
 
   def vault_checksum
-    @vault_version ||= @node['vault']['checksum']
-  end
-
-  def vault_name
-    @vault_name ||= 'vault'
+    @vault_version ||= @node[vault_name]['checksum']
   end
 
   def vault_user
