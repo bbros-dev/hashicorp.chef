@@ -137,7 +137,7 @@ class ::HashicorpHelpers
   end
 
   def nomad_checksum
-    @nomad_version ||= @node[nomad_name['checksum']
+    @nomad_version ||= @node[nomad_name]['checksum']
   end
 
   def nomad_user
