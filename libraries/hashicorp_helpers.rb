@@ -126,6 +126,36 @@ class ::HashicorpHelpers
     @consul_template_bin ||= ::File.join(bin_root, consul_template_name)
   end
 
+  ## EnvConsul
+  #
+  def envconsul_name
+    @envconsul_name ||= 'envconsul'
+  end
+
+  def envconsul_version
+    @envconsul_version ||= @node[envconsul_name]['version']
+  end
+
+  def envconsul_checksum
+    @envconsul_version ||= @node[envconsul_name]['checksum']
+  end
+
+  def envconsul_user
+    @envconsul_user ||= envconsul_name
+  end
+
+  def envconsul_group
+    @envconsul_group ||= envconsul_name
+  end
+
+  def envconsul_home
+    @envconsul_home ||= File.join(home_root, envconsul_name)
+  end
+
+  def envconsul_bin
+    @envconsul_bin ||= ::File.join(bin_root, envconsul_name)
+  end
+
   ## Nomad
   #
   def nomad_name

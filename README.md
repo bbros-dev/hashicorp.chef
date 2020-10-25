@@ -4,6 +4,7 @@ Install, without any configuration, binaries:
 
 - Consul
 - Consul-Template
+- EnvConsul
 - Nomad
 - Packer
 - Terraform
