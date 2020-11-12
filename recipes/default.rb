@@ -6,14 +6,19 @@
 
 node.default['atlantis']['version'] = 'v0.15.0'
 node.default['atlantis']['checksum'] = 'a236e7c9df159f8787b143c670f1899dd4bc4349f23ed696468600280fa1266e'
-node.default['consul']['version'] = '1.8.0'
-node.default['consul']['checksum'] = '98df3e0a8ede84794fa4d20b1b6b5d52ad3b983dec916c4d612cecba7c48a421'
+node.default['consul']['version'] = '1.8.5'
+node.default['consul']['checksum'] = '94ab38e6221d3da393d0bbdf19cc524051253a75db078c31e249dad2c497ad46'
 node.default['consul-template']['version'] = '0.25.0'
 node.default['consul-template']['checksum'] = '65982eb00b69303e5caa5677b53cc314fc19ed48042355c9b6465fa568b3aae3'
+# Envoy version depends on Consul version:
+# https://www.consul.io/docs/connect/proxies/envoy
+# Envoy is installed using the GetEnvoy.io script - hence no checksum.
+node.default['envoy']['version'] = '1.14.4'
+# node.default['envoy']['checksum'] = ''
 node.default['envconsul']['version'] = '0.10.0'
 node.default['envconsul']['checksum'] = 'ac459fbfaa2cdb259bf27b0c4b83c64a537d22293e8a60d76a053cea7f204eee'
-node.default['packer']['version'] = '1.6.4'
-node.default['packer']['checksum'] = 'a20ec68e9eb6e1d6016481003f705babbecc28e234f8434f3a35f675cb200ea8'
+node.default['packer']['version'] = '1.6.5'
+node.default['packer']['checksum'] = 'a49f6408a50c220fe3f1a6192ea21134e2e8f31092c507614cd27ad4f913234b'
 node.default['nomad']['version'] = '0.12.5'
 node.default['nomad']['checksum'] = 'dece264c86a5898a18d62d6ecca469fee71329e444b284416c57bd1e3d76f253'
 node.default['terraform']['version'] = '0.13.4'

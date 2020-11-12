@@ -1,6 +1,10 @@
 require 'base64'
 require 'json'
-require 'tty-command'
+## Chef Library Gem Dependencies
+#
+# https://www.sethvargo.com/using-gems-with-chef/
+#
+#require 'tty-command'
 
 ## Modelled on Upstream:
 #
